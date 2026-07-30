@@ -2,25 +2,15 @@ import { Briefcase } from 'lucide-react';
 
 const experiences = [
   {
-    role: "Freelance Content Writer & Digital Designer",
-    company: "Freelance Platform",
-    duration: "January 2025 – December 2025",
-    location: "Uttar Pradesh, India",
+    role: "Freelance Resume Writer & Translator",
+    company: "Fiverr / Freelance",
+    duration: "March 2025 – Present",
+    location: "Remote",
     points: [
-      "Authored 100+ SEO-optimized blog articles and web content for 20+ clients across technology, lifestyle, and business sectors, increasing organic traffic by an average of 35%.",
-      "Collaborated with development teams to create responsive website layouts and content strategies, resulting in improved user experience and conversion rates.",
-      "Conduct keyword research and implemented on-page SEO best practices to improve search engine rankings for client websites."
-    ]
-  },
-  {
-    role: "Fresher",
-    company: "Fiverr For Business",
-    duration: "January 2025 – November 2025",
-    location: "Uttar Pradesh, India",
-    points: [
-      "Currently developing AI-powered content solutions and exploring machine learning applications in digital marketing.",
-      "Building portfolio of technical projects integrating artificial intelligence with creative content development.",
-      "Engaging with clients to understand business requirements and deliver tailored digital solutions."
+      "Delivered professional resume writing and translation services for 90+ clients across diverse industries, ensuring accuracy and high-quality content.",
+      "Developed ATS-friendly resumes and CVs tailored to specific technical engineering roles, significantly improving interview conversion rates.",
+      "Translated complex technical documents while preserving domain context, precision, and linguistic fidelity across target languages.",
+      "Collaborated closely with global clients to incorporate iterative feedback, delivering 100% on-time projects with high satisfaction scores."
     ]
   }
 ];
@@ -29,25 +19,43 @@ const Experience = () => {
   return (
     <section id="experience" className="section">
       <div className="container">
-        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '3rem', textAlign: 'center' }}>
+        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.2rem)', marginBottom: '3.5rem', textAlign: 'center' }}>
           Professional <span className="heading-gradient">Experience</span>.
         </h2>
         
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '100%', position: 'relative' }}>
+          {/* Vertical Glowing Timeline Line */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '20px',
+              bottom: '20px',
+              left: '42px',
+              width: '2px',
+              background: 'linear-gradient(180deg, var(--accent-1), var(--accent-2), transparent)',
+              zIndex: 0,
+              opacity: 0.6
+            }}
+          />
+
           {experiences.map((exp, index) => (
-            <div key={index} className="glass-panel" style={{ padding: '2.5rem', position: 'relative' }}>
-              <div style={{ position: 'absolute', top: '-15px', left: '30px', background: 'var(--bg-color)', padding: '0.5rem', borderRadius: '50%', border: '1px solid var(--glass-border)' }}>
-                <Briefcase size={20} color="var(--accent-1)" />
+            <div key={index} className="glass-panel tilt-card" style={{ padding: 'clamp(2rem, 4vw, 3.5rem)', position: 'relative', width: '100%', zIndex: 1 }}>
+              <div style={{ position: 'absolute', top: '-18px', left: '32px', background: 'var(--bg-color)', padding: '0.65rem', borderRadius: '50%', border: '1px solid var(--badge-border)', boxShadow: '0 0 15px var(--glass-glow)', display: 'flex', animation: 'pulse-glow 4s infinite' }}>
+                <Briefcase size={22} color="var(--accent-1)" />
               </div>
-              <h3 style={{ fontSize: '1.5rem', color: 'var(--text-primary)', marginBottom: '0.5rem', marginTop: '0.5rem' }}>{exp.role}</h3>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
-                <span style={{ color: 'var(--accent-2)', fontWeight: '600' }}>{exp.company}</span>
+              <h3 style={{ fontSize: 'clamp(1.4rem, 2.2vw, 1.9rem)', color: 'var(--text-primary)', marginBottom: '0.6rem', marginTop: '0.6rem' }}>
+                {exp.role}
+              </h3>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', alignItems: 'center', marginBottom: '1.8rem', fontSize: '1rem' }}>
+                <span style={{ color: 'var(--accent-2)', fontWeight: '600', background: 'var(--badge-bg)', border: '1px solid var(--badge-border)', padding: '0.25rem 0.85rem', borderRadius: '20px' }}>
+                  {exp.company}
+                </span>
                 <span style={{ color: 'var(--text-secondary)' }}>•</span>
-                <span style={{ color: 'var(--text-secondary)' }}>{exp.duration}</span>
+                <span style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>{exp.duration}</span>
                 <span style={{ color: 'var(--text-secondary)' }}>•</span>
-                <span style={{ color: 'var(--text-secondary)' }}>{exp.location}</span>
+                <span style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>{exp.location}</span>
               </div>
-              <ul style={{ color: 'var(--text-secondary)', lineHeight: '1.8', paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <ul style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.2vw, 1.15rem)', lineHeight: '1.85', paddingLeft: '1.4rem', display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
                 {exp.points.map((point, i) => (
                   <li key={i}>{point}</li>
                 ))}
